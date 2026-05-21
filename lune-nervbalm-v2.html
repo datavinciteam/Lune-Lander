@@ -1465,7 +1465,8 @@
     font-size: 15px;
   }
   @media (max-width: 768px) {
-    .ing-stamps { grid-template-columns: repeat(3, 1fr); gap: 24px 12px; justify-items: center; justify-content: center; }
+    .ing-stamps { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px 12px; }
+    .ing-stamp { flex: 0 0 calc(33.333% - 8px); min-width: 90px; max-width: 110px; }
     .stamp-badge { width: 64px; height: 64px; }
     .stamp-badge .icon { width: 24px; height: 24px; }
   }
@@ -3296,12 +3297,23 @@
     .zd-ch-them-img { height: 52px; }
     .zd-attr { font-size: 11px; padding: 10px 12px; }
     .zd-us, .zd-them { font-size: 13px; padding: 10px 12px; }
-    /* Arrow buttons — below table, right-aligned */
+    /* Arrow row — above table, label left / buttons right */
     .zd-scroll-arrow-row {
       display: flex;
-      justify-content: flex-end;
-      gap: 16px;
-      margin-top: 12px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .zd-scroll-arrow-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .zd-scroll-arrow-btns {
+      display: flex;
+      gap: 8px;
     }
     .zd-scroll-arrow {
       display: flex;
@@ -3331,6 +3343,18 @@
     <div class="zd-header">
       <h2 class="zd-title">How Nerve Balm Compares to Magnesium-Based Nerve Lotions</h2>
       <p class="zd-intro">You deserve to know exactly what you are putting on your skin and what it is designed to do. Here is an honest, side-by-side look.</p>
+    </div>
+
+    <div class="zd-scroll-arrow-row">
+      <span class="zd-scroll-arrow-label">Swipe to compare</span>
+      <div class="zd-scroll-arrow-btns">
+        <button class="zd-scroll-arrow left" aria-label="Scroll left" disabled>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="zd-scroll-arrow right" aria-label="Scroll right">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
     </div>
 
     <div class="zd-scroll-outer">
@@ -3391,14 +3415,6 @@
     </div>
     </div><!-- /.zd-scroll-wrap -->
     </div><!-- /.zd-scroll-outer -->
-    <div class="zd-scroll-arrow-row">
-      <button class="zd-scroll-arrow left" aria-label="Scroll left" disabled>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <button class="zd-scroll-arrow right" aria-label="Scroll right">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
 
     <!-- ── Hybrid footnote: warm card + stacked comparison + CTA ─ -->
     <div class="zd-fn-hybrid">
@@ -6239,8 +6255,8 @@
   (function() {
     var wrap = document.querySelector('.zd-scroll-wrap');
     if (!wrap) return;
-    var btnLeft = document.querySelector('.zd-scroll-arrow-row .zd-scroll-arrow.left');
-    var btnRight = document.querySelector('.zd-scroll-arrow-row .zd-scroll-arrow.right');
+    var btnLeft = document.querySelector('.zd-scroll-arrow-btns .zd-scroll-arrow.left');
+    var btnRight = document.querySelector('.zd-scroll-arrow-btns .zd-scroll-arrow.right');
     var STEP = 200;
     function updateArrows() {
       btnLeft.disabled = wrap.scrollLeft <= 0;
