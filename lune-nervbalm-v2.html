@@ -3751,6 +3751,15 @@
     });
   }
 
+  function closeBody(b) {
+    /* Pin from current rendered height (handles both '9999px' and explicit px values)
+       then force a synchronous reflow so the browser treats that height as the
+       transition start-point, then animate to 0. */
+    b.style.maxHeight = b.scrollHeight + 'px';
+    void b.offsetHeight; // force reflow — makes the browser commit the new value
+    b.style.maxHeight = '0';
+  }
+
   function openItem(item) {
     const sys       = item.dataset.sys;
     const body      = item.querySelector('.ts-body');
@@ -3758,15 +3767,16 @@
     const inner     = item.querySelector('.ts-body-inner');
     const wasOpen   = item.classList.contains('ts-open');
 
-    /* Close all — return any mobile-displaced slides first */
+    /* Return any mobile-displaced slides first */
     returnSlidesToPanel();
+
+    /* Close all other items; if clicked item was already open, close it too */
     items.forEach(i => {
+      if (!wasOpen && i === item) return; // about to open this one — skip close
+      const wasItemOpen = i.classList.contains('ts-open');
       i.classList.remove('ts-open');
       i.querySelector('.ts-trigger').setAttribute('aria-expanded', 'false');
-      const b = i.querySelector('.ts-body');
-      // Pin to actual height first so CSS transition has a valid "from" value, then collapse
-      b.style.maxHeight = b.scrollHeight + 'px';
-      requestAnimationFrame(() => { b.style.maxHeight = '0'; });
+      if (wasItemOpen) closeBody(i.querySelector('.ts-body'));
     });
 
     /* Toggle: only open if it was closed */
