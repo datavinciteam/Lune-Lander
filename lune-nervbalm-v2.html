@@ -80,7 +80,7 @@
   .mech-left .section-eyebrow { text-align: left; }
   .stats-card .section-eyebrow { color: #90A4AE; }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: clip; }
   body {
     margin: 0;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -4303,7 +4303,7 @@
     border-radius: 14px;
     margin: 0 0 28px;
     display: grid;
-    grid-template-columns: 1fr 200px;
+    grid-template-columns: 1fr 240px;
     overflow: hidden;
     min-height: 280px;
   }
@@ -4393,12 +4393,12 @@
     border: 1px solid var(--border);
     border-radius: 12px;
     display: grid;
-    grid-template-columns: 1fr 130px;
+    grid-template-columns: 1fr 160px;
     overflow: hidden;
     min-height: 180px;
-    align-items: start;
+    align-items: stretch;
   }
-  .swt-card .swt-portrait { aspect-ratio: 3 / 4; }
+  .swt-card .swt-portrait { aspect-ratio: unset; }
   .swt-card-content {
     padding: 22px 22px 22px;
     display: flex;
@@ -4448,8 +4448,9 @@
     .swt-hero .swt-portrait { display: none; }
     .swt-hero-text { font-size: 17px; }
     .swt-grid { grid-template-columns: 1fr; }
-    .swt-card { grid-template-columns: 1fr 100px; min-height: 180px; }
-    .swt-card-content { padding: 18px 16px; }
+    .swt-card { grid-template-columns: 1fr; grid-template-rows: 200px auto; min-height: auto; }
+    .swt-card .swt-portrait { grid-column: 1; grid-row: 1; height: 200px; aspect-ratio: unset; border-radius: 11px 11px 0 0 !important; }
+    .swt-card-content { grid-row: 2; padding: 18px 16px; }
     .swt-card-text { font-size: 14px; line-height: 24px; }
   }
 
@@ -4855,15 +4856,7 @@
         <div class="swt-hero-author">Verified Lune Customer <span class="swt-verified">✓ Verified</span></div>
       </div>
       <div class="swt-portrait" style="background:#C8C0B4;">
-        <div class="swt-portrait-inner">
-          <div class="swt-portrait-figure">
-            <svg viewBox="0 0 100 200" fill="#9A8F83" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="50" cy="48" r="26"/>
-              <ellipse cx="50" cy="155" rx="46" ry="55"/>
-            </svg>
-          </div>
-        </div>
-        <span class="swt-portrait-label">Photo</span>
+        <img src="images/customer-story-01.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
       </div>
     </div>
 
@@ -4887,8 +4880,7 @@
           </div>
         </div>
         <div class="swt-portrait" style="background:#BFC5BE; border-radius:0 11px 11px 0;">
-          <div class="swt-portrait-inner"><div class="swt-portrait-figure"><svg viewBox="0 0 100 200" fill="#8F9A8E"><circle cx="50" cy="48" r="26"/><ellipse cx="50" cy="155" rx="46" ry="55"/></svg></div></div>
-          <span class="swt-portrait-label">Photo</span>
+          <img src="images/customer-story-2.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
         </div>
       </div>
 
@@ -4909,8 +4901,7 @@
           </div>
         </div>
         <div class="swt-portrait" style="background:#C5BFB0; border-radius:0 11px 11px 0;">
-          <div class="swt-portrait-inner"><div class="swt-portrait-figure"><svg viewBox="0 0 100 200" fill="#9A9186"><circle cx="50" cy="48" r="26"/><ellipse cx="50" cy="155" rx="46" ry="55"/></svg></div></div>
-          <span class="swt-portrait-label">Photo</span>
+          <img src="images/customer-story-3.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
         </div>
       </div>
 
@@ -4931,8 +4922,7 @@
           </div>
         </div>
         <div class="swt-portrait" style="background:#B8C2C5; border-radius:0 11px 11px 0;">
-          <div class="swt-portrait-inner"><div class="swt-portrait-figure"><svg viewBox="0 0 100 200" fill="#8C969A"><circle cx="50" cy="48" r="26"/><ellipse cx="50" cy="155" rx="46" ry="55"/></svg></div></div>
-          <span class="swt-portrait-label">Photo</span>
+          <img src="images/customer-story-04.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
         </div>
       </div>
 
@@ -4953,8 +4943,7 @@
           </div>
         </div>
         <div class="swt-portrait" style="background:#C2BAB0; border-radius:0 11px 11px 0;">
-          <div class="swt-portrait-inner"><div class="swt-portrait-figure"><svg viewBox="0 0 100 200" fill="#96908A"><circle cx="50" cy="48" r="26"/><ellipse cx="50" cy="155" rx="46" ry="55"/></svg></div></div>
-          <span class="swt-portrait-label">Photo</span>
+          <img src="images/customer-story-5.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
         </div>
       </div>
 
@@ -5831,7 +5820,7 @@
       <!-- LEFT: Authority figure card -->
       <aside class="faq-authority">
         <div class="authority-image">
-          <svg class="icon"><use href="#i-user"/></svg>
+          <img src="images/doctor-0.png" alt="Dr. Sarah Chen" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;">
           <span class="approved-badge">
             <svg class="icon"><use href="#i-shield"/></svg>
             Reviewed
@@ -5981,10 +5970,10 @@
             </div>
           </div>
         </div>
-        <p class="review-body">“I've had burning feet for 15 years. Tried gabapentin, 4 creams, even prescription patches. Nothing lasted. Within a week of Nerve Balm <span class="hl">I slept through the night</span>. By week two I forgot to think about my feet  and that hasn't happened in a decade.”</p>
-        <div class="review-media">
-          <div class="review-media-item" aria-label="Customer photo"></div>
-          <div class="review-media-item" aria-label="Customer photo"></div>
+        <p class=”review-body”>”I've had burning feet for 15 years. Tried gabapentin, 4 creams, even prescription patches. Nothing lasted. Within a week of Nerve Balm <span class=”hl”>I slept through the night</span>. By week two I forgot to think about my feet  and that hasn't happened in a decade.”</p>
+        <div class=”review-media”>
+          <div class=”review-media-item” aria-label=”Customer photo”><img src=”images/review-1-foot-relief.png” alt=”” style=”width:100%;height:100%;object-fit:cover;display:block;”></div>
+          <div class=”review-media-item” aria-label=”Customer photo”><img src=”images/review-5-feet-morning.png” alt=”” style=”width:100%;height:100%;object-fit:cover;display:block;”></div>
           <div class="review-media-item video" aria-label="Customer video" data-video-src="//www.luneusa.com/cdn/shop/videos/c/vp/6fcd7749847a40519bfd3a9a9d00e211/6fcd7749847a40519bfd3a9a9d00e211.SD-480p-0.9Mbps-64059365.mp4?v=0" role="button" tabindex="0">
             <div class="play-mini"><svg class="icon"><use href="#i-play"/></svg></div>
           </div>
@@ -6008,9 +5997,9 @@
             </div>
           </div>
         </div>
-        <p class="review-body">“I'm on my feet 10 hours a day. The buzzing and stabbing made evenings miserable. Two weeks in, I stopped dreading them. <span class="hl">I actually enjoy my evenings now.</span>”</p>
+        <p class=”review-body”>”I'm on my feet 10 hours a day. The buzzing and stabbing made evenings miserable. Two weeks in, I stopped dreading them. <span class=”hl”>I actually enjoy my evenings now.</span>”</p>
         <div class=”review-media”>
-          <div class=”review-media-item” aria-label=”Customer photo”></div>
+          <div class=”review-media-item” aria-label=”Customer photo”><img src=”images/review-3-man-leg.png” alt=”” style=”width:100%;height:100%;object-fit:cover;display:block;”></div>
           <div class=”review-media-item video” aria-label=”Customer video” data-video-src=”//www.luneusa.com/cdn/shop/videos/c/vp/b3a91f7333bf45269af553919d687942/b3a91f7333bf45269af553919d687942.HD-1080p-7.2Mbps-75717170.mp4?v=0” role=”button” tabindex=”0”>
             <video class=”rv-thumb” src=”//www.luneusa.com/cdn/shop/videos/c/vp/b3a91f7333bf45269af553919d687942/b3a91f7333bf45269af553919d687942.HD-1080p-7.2Mbps-75717170.mp4?v=0” preload=”metadata” muted playsinline></video>
             <div class=”play-mini”><svg class=”icon”><use href=”#i-play”/></svg></div>
@@ -6035,10 +6024,10 @@
             </div>
           </div>
         </div>
-        <p class="review-body">“Skeptical of the price at first. Then I remembered how much I spent on things that didn't work. Tried three other creams. This was the last one  and <span class="hl">the only one I'm still using.</span>”</p>
+        <p class=”review-body”>”Skeptical of the price at first. Then I remembered how much I spent on things that didn't work. Tried three other creams. This was the last one  and <span class=”hl”>the only one I'm still using.</span>”</p>
         <div class=”review-media”>
-          <div class=”review-media-item” aria-label=”Customer photo”></div>
-          <div class=”review-media-item” aria-label=”Customer photo”></div>
+          <div class=”review-media-item” aria-label=”Customer photo”><img src=”images/review-2-hands.png” alt=”” style=”width:100%;height:100%;object-fit:cover;display:block;”></div>
+          <div class=”review-media-item” aria-label=”Customer photo”><img src=”images/review-4-woman-exhale.png” alt=”” style=”width:100%;height:100%;object-fit:cover;display:block;”></div>
           <div class=”review-media-item video” aria-label=”Customer video” data-video-src=”//www.luneusa.com/cdn/shop/videos/c/vp/3d57f9fd3def497994af57633416a871/3d57f9fd3def497994af57633416a871.SD-480p-0.9Mbps-62054451.mp4?v=0” role=”button” tabindex=”0”>
             <video class=”rv-thumb” src=”//www.luneusa.com/cdn/shop/videos/c/vp/3d57f9fd3def497994af57633416a871/3d57f9fd3def497994af57633416a871.SD-480p-0.9Mbps-62054451.mp4?v=0” preload=”metadata” muted playsinline></video>
             <div class=”play-mini”><svg class=”icon”><use href=”#i-play”/></svg></div>
@@ -6063,9 +6052,9 @@
             </div>
           </div>
         </div>
-        <p class="review-body">“My doctor was surprised. I just told him <span class="hl">I finally found something that works.</span>”</p>
+        <p class=”review-body”>”My doctor was surprised. I just told him <span class=”hl”>I finally found something that works.</span>”</p>
         <div class=”review-media”>
-          <div class=”review-media-item” aria-label=”Customer photo”></div>
+          <div class=”review-media-item” aria-label=”Customer photo”><img src=”images/review-6-couple.png” alt=”” style=”width:100%;height:100%;object-fit:cover;display:block;”></div>
           <div class=”review-media-item video” aria-label=”Customer video” data-video-src=”//www.luneusa.com/cdn/shop/videos/c/vp/dcd1aa5410044c65b669c16a495a5942/dcd1aa5410044c65b669c16a495a5942.HD-1080p-7.2Mbps-75716030.mp4?v=0” role=”button” tabindex=”0”>
             <video class=”rv-thumb” src=”//www.luneusa.com/cdn/shop/videos/c/vp/dcd1aa5410044c65b669c16a495a5942/dcd1aa5410044c65b669c16a495a5942.HD-1080p-7.2Mbps-75716030.mp4?v=0” preload=”metadata” muted playsinline></video>
             <div class=”play-mini”><svg class=”icon”><use href=”#i-play”/></svg></div>
