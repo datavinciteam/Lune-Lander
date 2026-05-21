@@ -2655,8 +2655,11 @@
   @media (max-width: 480px) {
     .hero .h1         { font-size: 22px; line-height: 28px; }
     .gallery-frame    { aspect-ratio: 1 / 1; }
-    .gallery-thumbs   { display: none; }
+    .gallery-thumbs   { gap: 6px; }
+    .gallery-thumbs button { width: 48px; height: 48px; }
     .purchase         { padding-top: 18px; gap: 14px; }
+    /* Always show arrows on touch — no hover state on mobile */
+    .carousel-arrow   { opacity: 1; }
   }
 </style>
 </head>
@@ -6271,6 +6274,15 @@
     thumbs.forEach((t, n) => t.addEventListener('click', () => go(n)));
     prev.addEventListener('click', () => go(idx - 1));
     next.addEventListener('click', () => go(idx + 1));
+
+    // Touch swipe support
+    const frame = document.querySelector('.gallery-frame');
+    let touchStartX = 0;
+    frame.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    frame.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) go(idx + (diff > 0 ? 1 : -1));
+    }, { passive: true });
   })();
 
   /* ============================================================
@@ -6315,15 +6327,11 @@
       }
     }));
 
-    // On resize into accordion mode, ensure Reviews is open if nothing is
-    window.addEventListener('resize', () => {
-      if (!isAccordion()) return;
-      const anyOpen = Array.prototype.some.call(accHeads, h => h.classList.contains('open'));
-      if (!anyOpen) {
-        accHeads[0].classList.add('open');
-        panels[0].classList.add('active');
-      }
-    });
+    // On mobile load: start with all accordions closed
+    if (isAccordion()) {
+      accHeads.forEach(h => h.classList.remove('open'));
+      panels.forEach(p => p.classList.remove('active'));
+    }
   })();
 
   /* ============================================================
@@ -6501,6 +6509,35 @@
       });
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  })();
+
+  /* ============================================================
+     MOBILE: move "What customers say" rotator below trust strip
+     ============================================================ */
+  (function () {
+    var rotator    = document.getElementById('rotator');
+    var trustStrip = document.querySelector('.purchase .trust-strip');
+    var gallery    = document.querySelector('.gallery');
+    if (!rotator || !trustStrip || !gallery) return;
+
+    var isMob = function () { return window.innerWidth <= 960; };
+    var placed = null; // track current placement
+
+    function reorder() {
+      var mob = isMob();
+      if (mob && placed !== 'mobile') {
+        trustStrip.parentNode.insertBefore(rotator, trustStrip.nextSibling);
+        rotator.style.marginTop = '16px';
+        placed = 'mobile';
+      } else if (!mob && placed !== 'desktop') {
+        gallery.appendChild(rotator);
+        rotator.style.marginTop = '';
+        placed = 'desktop';
+      }
+    }
+
+    reorder();
+    window.addEventListener('resize', reorder);
   })();
 </script>
 
