@@ -6,29 +6,32 @@
 <title>Nerve Balm  Lune</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Tenor+Sans&display=swap" rel="stylesheet">
 <style>
   /* ============================================================
      DESIGN TOKENS
      ============================================================ */
   :root {
     --bg: #FFFFFF;
-    --ink: #111111;
-    --muted: #555555;
+    --bg-warm: #F9F4EE;
+    --ink: #212326;
+    --muted: #212326;
     --border: #E5E5E5;
-    --tint: #F7F7F7;
-    --tint-alt: #FAFAFA;
-    --green: #4F6F52;
+    --tint: #FFFFFF;
+    --tint-alt: #FFFFFF;
+    --green: #4a6072;
+    --green-dark: #3a4f5f;
+    --warm: #917567;
     --cross: #999999;
 
-    --pill: 9999px;
-    --r-card: 12px;
-    --r-input: 10px;
-    --r-soft: 20px;
+    --pill: 4px;
+    --r-card: 4px;
+    --r-input: 4px;
+    --r-soft: 4px;
 
-    --container: 1200px;
-    --section-pad-y: 64px;
-    --section-pad-y-m: 40px;
+    --container: 1440px;
+    --section-pad-y: 80px;
+    --section-pad-y-m: 48px;
 
     --shadow-sm: 0 1px 2px rgba(17, 17, 17, 0.04);
     --shadow-md: 0 4px 20px rgba(17, 17, 17, 0.06);
@@ -55,39 +58,39 @@
     display: inline-flex;
     align-items: center;
     gap: 2px;
-    color: #90A4AE;
+    color: #C49A2A;
   }
   .star-row .icon { width: 12px; height: 12px; }
   .star-row.lg .icon { width: 14px; height: 14px; }
 
   /* Accent text color  call out load-bearing words and phrases */
   .hl {
-    color: #678291;
+    color: #648291;
   }
 
   /* Section eyebrow label  sits above the h2 in each section */
   .section-eyebrow {
     display: block;
-    font-weight: 600;
-    font-size: 11px;
-    line-height: 16px;
-    letter-spacing: 0.18em;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #678291;
+    color: var(--ink);
     text-align: center;
-    margin-bottom: 14px;
+    margin-bottom: 0.875rem;
   }
   .mech-left .section-eyebrow { text-align: left; }
-  .stats-card .section-eyebrow { color: #90A4AE; }
+  .stats-card .section-eyebrow { color: #648291; }
 
   html { scroll-behavior: smooth; overflow-x: clip; }
   body {
     margin: 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg);
     color: var(--ink);
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 1rem;
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -96,52 +99,54 @@
   button { font-family: inherit; cursor: pointer; }
   a { color: inherit; text-decoration: none; }
 
-  /* Typography utilities */
+  /* Typography utilities — Lune brand system (rem + clamp for viewport scaling) */
   .eyebrow {
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.08em;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
   }
   .h1 {
-    font-weight: 600;
-    font-size: 38px;
-    line-height: 46px;
-    letter-spacing: -0.025em;
+    font-family: 'Tenor Sans', serif;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
     margin: 0;
     text-wrap: balance;
   }
   .h-section {
-    font-weight: 600;
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -0.025em;
+    font-family: 'Tenor Sans', serif;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
     margin: 0;
     text-wrap: balance;
   }
   .h-sub {
     font-weight: 600;
-    font-size: 24px;
-    line-height: 32px;
-    letter-spacing: -0.01em;
+    font-size: clamp(1.25rem, 2vw, 1.625rem);
+    line-height: 1.3;
+    letter-spacing: 0;
     margin: 0;
   }
   .h-card {
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 28px;
-    letter-spacing: -0.01em;
+    font-weight: 700;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    line-height: 1.4;
+    letter-spacing: 0;
     margin: 0;
   }
-  .body-lg { font-size: 18px; line-height: 36px; }
-  .body { font-size: 16px; line-height: 26px; }
-  .body-sm { font-size: 14px; line-height: 26px; letter-spacing: 0.01em; }
+  .body-lg { font-size: clamp(1rem, 1.25vw, 1.125rem); line-height: 1.6; }
+  .body { font-size: 1rem; line-height: 1.55; }
+  .body-sm { font-size: 0.875rem; line-height: 1.55; letter-spacing: 0; }
   .muted { color: var(--muted); }
   .stat-number {
     font-weight: 700;
-    font-size: 36px;
-    line-height: 40px;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    line-height: 1.1;
     letter-spacing: -0.02em;
   }
   .cta-text {
@@ -152,17 +157,18 @@
     text-transform: uppercase;
   }
 
-  /* Buttons */
+  /* Buttons — Lune brand style */
   .btn-primary {
-    background: #678291;
+    background: #4a6072;
     color: #fff;
     border: none;
-    border-radius: var(--pill);
+    border-radius: 2px;
     height: 52px;
-    padding: 0 28px;
-    font-weight: 600;
+    padding: 0 32px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
     font-size: 14px;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     display: inline-flex;
     align-items: center;
@@ -171,20 +177,21 @@
     transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease;
   }
   .btn-primary:hover {
-    background: #556E7A;
-    box-shadow: var(--shadow-md);
+    background: #3a4f5f;
+    box-shadow: 0 4px 20px rgba(74,96,114,0.30);
   }
   .btn-primary.full { width: 100%; }
   .btn-secondary {
-    background: #fff;
+    background: var(--bg);
     color: var(--ink);
     border: 1px solid var(--border);
-    border-radius: var(--pill);
+    border-radius: 2px;
     height: 44px;
     padding: 0 20px;
+    font-family: 'Nunito', sans-serif;
     font-weight: 600;
     font-size: 13px;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     display: inline-flex;
     align-items: center;
@@ -192,18 +199,19 @@
     gap: 6px;
     transition: background 180ms ease, border-color 180ms ease;
   }
-  .btn-secondary:hover { background: var(--tint); border-color: #d8d8d8; }
+  .btn-secondary:hover { background: var(--tint); border-color: #d0d0d0; }
 
   .btn-invert {
-    background: #678291;
+    background: #4a6072;
     color: #fff;
     border: none;
-    border-radius: var(--pill);
+    border-radius: 2px;
     height: 52px;
-    padding: 0 32px;
-    font-weight: 600;
+    padding: 0 36px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
     font-size: 14px;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     display: inline-flex;
     align-items: center;
@@ -211,16 +219,16 @@
     gap: 8px;
     transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease;
   }
-  .btn-invert:hover { background: #758F9D; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(103,130,145,0.35); }
+  .btn-invert:hover { background: #3a4f5f; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(74,96,114,0.35); }
 
   /* Container + section helpers */
   .container {
     max-width: var(--container);
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 2rem;
   }
   section { padding: var(--section-pad-y) 0; }
-  .section-narrow { max-width: 720px; margin: 0 auto; padding: 0 24px; text-align: center; }
+  .section-narrow { max-width: 760px; margin: 0 auto; padding: 0 2rem; text-align: center; }
   .center { text-align: center; }
 
   /* Fade-in on scroll */
@@ -235,88 +243,87 @@
   }
 
   /* ============================================================
-     HEADER
+     HEADER — matches luneusa.com
      ============================================================ */
   header.site-header {
     position: sticky;
     top: 0;
     z-index: 50;
-    height: 72px;
-    background: rgba(255,255,255,0.98);
-    backdrop-filter: saturate(180%) blur(6px);
-    transition: box-shadow 200ms ease;
+    height: 64px;
+    background: #ffffff;
+    border-bottom: 1px solid #e8e3db;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   }
-  header.site-header.scrolled { box-shadow: 0 1px 16px rgba(17,17,17,0.06); }
+  header.site-header.scrolled { box-shadow: 0 2px 12px rgba(0,0,0,0.12); }
   .header-inner {
-    height: 72px;
+    height: 64px;
     display: flex;
     align-items: center;
-    gap: 36px;
+    justify-content: space-between;
+    gap: 0;
   }
   .logo {
-    font-weight: 700;
-    font-size: 17px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .logo img {
+    height: 36px;
+    width: auto;
+    display: block;
   }
   .main-nav {
     display: flex;
-    gap: 28px;
-    flex: 1;
-    margin-left: 16px;
+    gap: 32px;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
   .main-nav a {
+    font-family: 'Nunito', sans-serif;
     font-weight: 600;
     font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--ink);
-    position: relative;
-    padding: 6px 0;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 180ms;
   }
-  .main-nav a::after {
-    content: '';
-    position: absolute;
-    left: 0; bottom: 0;
-    width: 0; height: 1.5px;
-    background: var(--ink);
-    transition: width 220ms ease;
-  }
-  .main-nav a:hover::after { width: 100%; }
-  .header-icons {
+  .main-nav a:hover { opacity: 0.6; }
+  .header-right {
     display: flex;
-    gap: 16px;
     align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
   }
   .icon-btn {
-    width: 40px; height: 40px;
-    border-radius: 9999px;
-    border: 1px solid transparent;
+    width: 36px; height: 36px;
+    border-radius: 0;
+    border: none;
     background: transparent;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: background 160ms ease, border-color 160ms ease;
+    color: var(--ink);
+    cursor: pointer;
+    transition: opacity 180ms;
   }
-  .icon-btn:hover { background: var(--tint); }
-  .header-cta {
-    margin-left: 4px;
-  }
-  .header-cta .btn-pill {
-    background: transparent;
-    color: #678291;
-    border: none;
-    height: 40px;
-    padding: 0 4px 0 14px;
+  .icon-btn:hover { opacity: 0.6; background: transparent; }
+  .header-login {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
     font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    border-left: 1px solid var(--border);
-    transition: color 180ms ease;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 0 8px;
+    transition: opacity 180ms;
   }
-  .header-cta .btn-pill:hover { color: #556E7A; }
+  .header-login:hover { opacity: 0.6; }
 
   /* ============================================================
      HERO
@@ -327,8 +334,8 @@
   }
   .hero-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(420px, 0.95fr);
-    gap: 40px;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 64px;
     align-items: start;
   }
 
@@ -345,7 +352,7 @@
     position: relative;
     width: 100%;
     aspect-ratio: 1 / 1;
-    background: #F2F2F0;
+    background: #fff;
     border-radius: var(--r-card);
     overflow: hidden;
   }
@@ -387,7 +394,7 @@
     top: 50%;
     transform: translateY(-50%);
     width: 40px; height: 40px;
-    border-radius: 9999px;
+    border-radius: 4px;
     border: 1px solid var(--border);
     background: rgba(255,255,255,0.92);
     backdrop-filter: blur(8px);
@@ -417,7 +424,7 @@
     flex-shrink: 0;
     border: 1px solid var(--border);
     border-radius: 8px;
-    background: #F2F2F0;
+    background: #fff;
     padding: 0;
     cursor: pointer;
     overflow: hidden;
@@ -439,8 +446,8 @@
     color: #8A8A85;
   }
   .gallery-thumbs button.active {
-    border: 2px solid #678291;
-    color: #678291;
+    border: 2px solid #648291;
+    color: #648291;
     transform: none;
   }
   .gallery-thumbs .thumb-mark {
@@ -583,13 +590,13 @@
     width: 56px;
     height: 56px;
     flex-shrink: 0;
-    border-radius: 9999px;
-    background: #F5F2EE;
+    border-radius: 4px;
+    background: #fff;
     border: 1px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #90A4AE;
+    color: #648291;
     overflow: hidden;
   }
   .review-avatar .icon { width: 28px; height: 28px; }
@@ -605,7 +612,7 @@
   .ingredient-line .ing-icon {
     width: 18px; height: 18px;
     flex-shrink: 0;
-    color: #90A4AE;
+    color: #648291;
     margin-top: 2px;
   }
   .ingredient-line .ing-icon .icon { width: 18px; height: 18px; }
@@ -621,7 +628,7 @@
   .sub-toggle {
     display: flex;
     gap: 4px;
-    background: #F5F2EE;
+    background: #fff;
     padding: 5px;
     border-radius: var(--pill);
     border: 1px solid rgba(103, 130, 145, 0.12);
@@ -641,10 +648,10 @@
   }
   .sub-toggle button:hover:not(.active) {
     background: rgba(255, 255, 255, 0.65);
-    color: #678291;
+    color: #648291;
   }
   .sub-toggle button.active {
-    background: #678291;
+    background: #648291;
     color: #fff;
     box-shadow: 0 2px 8px rgba(103, 130, 145, 0.22);
   }
@@ -682,7 +689,7 @@
     width: 64px;
     height: 64px;
     border-radius: 8px;
-    background: #F5F2EE;
+    background: #fff;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -696,7 +703,7 @@
   }
   .pack-radio {
     width: 20px; height: 20px;
-    border-radius: 9999px;
+    border-radius: 4px;
     border: 1.5px solid #C4C4C4;
     position: relative;
     transition: border-color 160ms ease;
@@ -707,7 +714,7 @@
     position: absolute;
     inset: 3px;
     background: var(--ink);
-    border-radius: 9999px;
+    border-radius: 4px;
   }
   .pack-label {
     font-size: 15px;
@@ -758,7 +765,7 @@
     border-top: 1px dashed var(--border);
   }
   .pack-bullets div { display: flex; gap: 10px; align-items: center; }
-  .pack-bullets .icon { width: 14px; height: 14px; color: #90A4AE; flex-shrink: 0; }
+  .pack-bullets .icon { width: 14px; height: 14px; color: #648291; flex-shrink: 0; }
 
   /* Trust strip */
   .trust-strip {
@@ -783,11 +790,11 @@
     white-space: nowrap;
     flex-shrink: 0;
   }
-  .trust-strip .icon { width: 14px; height: 14px; color: #90A4AE; flex-shrink: 0; }
+  .trust-strip .icon { width: 14px; height: 14px; color: #648291; flex-shrink: 0; }
 
   /* Rotating reviews  cream card under the gallery */
   .rotator {
-    background: #F5F2EE;
+    background: #fff;
     border-radius: var(--r-card);
     padding: 20px 22px;
     margin-top: 18px;
@@ -826,13 +833,13 @@
     width: 44px;
     height: 44px;
     flex-shrink: 0;
-    border-radius: 9999px;
+    border-radius: 4px;
     background: #fff;
     border: 1px solid rgba(17,17,17,0.08);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #90A4AE;
+    color: #648291;
     overflow: hidden;
   }
   .rev-avatar .icon { width: 22px; height: 22px; }
@@ -856,7 +863,7 @@
      TICKER RIBBON
      ============================================================ */
   .ticker-bar {
-    background: #678291;
+    background: #648291;
     color: #fff;
     overflow: hidden;
     padding: 0;
@@ -894,7 +901,7 @@
   .ticker-dot {
     width: 4px;
     height: 4px;
-    border-radius: 9999px;
+    border-radius: 4px;
     background: rgba(255,255,255,0.35);
     flex-shrink: 0;
   }
@@ -909,7 +916,7 @@
   /* ============================================================
      ZONE 1  Comparison (2-column card layout)
      ============================================================ */
-  #zone-comparison { background: #F5F2EE; }
+  #zone-comparison { background: #fff; }
   .zone1-intro { max-width: 640px; margin: 0 auto 40px; }
   .compare-card {
     display: grid;
@@ -990,7 +997,7 @@
   .us-bullets .icon {
     width: 16px;
     height: 16px;
-    color: #678291;
+    color: #648291;
     flex-shrink: 0;
   }
 
@@ -1006,7 +1013,7 @@
     gap: 12px;
   }
   .us-result {
-    background: #F5F2EE;
+    background: #fff;
     border-radius: 8px;
     padding: 16px 12px;
     text-align: center;
@@ -1116,7 +1123,7 @@
     transform: translateY(-50%);
     width: 44px;
     height: 44px;
-    border-radius: 9999px;
+    border-radius: 4px;
     background: rgba(255, 255, 255, 0.96);
     border: 1px solid var(--border);
     display: flex;
@@ -1171,7 +1178,7 @@
   /* Video card  9:16 portrait */
   .video-frame {
     aspect-ratio: 9 / 16;
-    background: linear-gradient(135deg, #F5F2EE 0%, #E0D6C7 55%, #C8B8A4 100%);
+    background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 55%, #cccccc 100%);
     border-radius: var(--r-card);
     position: relative;
     overflow: hidden;
@@ -1192,7 +1199,7 @@
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     width: 60px; height: 60px;
-    border-radius: 9999px;
+    border-radius: 4px;
     background: rgba(255,255,255,0.96);
     border: none;
     display: flex;
@@ -1261,13 +1268,13 @@
     width: 32px;
     height: 32px;
     flex-shrink: 0;
-    border-radius: 9999px;
-    background: #F5F2EE;
+    border-radius: 4px;
+    background: #fff;
     border: 1px solid rgba(17, 17, 17, 0.08);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #90A4AE;
+    color: #648291;
     overflow: hidden;
   }
   .text-testi .testi-avatar .icon { width: 16px; height: 16px; }
@@ -1336,13 +1343,13 @@
   .ing-circle {
     width: 86px;
     height: 86px;
-    border-radius: 9999px;
-    background: #F5F2EE;
+    border-radius: 4px;
+    background: #fff;
     border: 1px solid rgba(17, 17, 17, 0.06);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #90A4AE;
+    color: #648291;
     margin: 0 auto 4px;
   }
   .ing-circle .icon { width: 36px; height: 36px; }
@@ -1371,7 +1378,7 @@
     margin-top: 4px;
   }
   .ing-card .ing-pill {
-    background: #F5F2EE;
+    background: #fff;
     color: var(--ink);
     font-size: 11px;
     font-weight: 500;
@@ -1391,7 +1398,7 @@
     transform: translateY(-50%);
     width: 44px;
     height: 44px;
-    border-radius: 9999px;
+    border-radius: 4px;
     background: rgba(255, 255, 255, 0.96);
     border: 1px solid var(--border);
     display: flex;
@@ -1426,21 +1433,21 @@
   .stamp-badge {
     width: 76px;
     height: 76px;
-    border-radius: 9999px;
+    border-radius: 4px;
     background: #fff;
     border: 1.5px solid var(--border);
     margin: 0 auto 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #678291;
+    color: #648291;
     position: relative;
   }
   .stamp-badge::before {
     content: '';
     position: absolute;
     inset: 5px;
-    border-radius: 9999px;
+    border-radius: 4px;
     border: 1px dashed rgba(103, 130, 145, 0.35);
   }
   .stamp-badge .icon { width: 28px; height: 28px; }
@@ -1516,7 +1523,7 @@
     top: 28px;
     width: 2px;
     height: 0;
-    background: #678291;
+    background: #648291;
     transform: translateX(-1px);
     transition: height 800ms ease;
     z-index: 0;
@@ -1538,7 +1545,7 @@
   .mech-bullet-icon {
     width: 56px;
     height: 56px;
-    border-radius: 9999px;
+    border-radius: 4px;
     background: #fff;
     border: 1px solid var(--border);
     display: flex;
@@ -1548,8 +1555,8 @@
     transition: background 700ms ease, border-color 700ms ease, color 700ms ease, transform 700ms ease;
   }
   .mech-bullet.active .mech-bullet-icon {
-    background: #678291;
-    border-color: #678291;
+    background: #648291;
+    border-color: #648291;
     color: #fff;
     transform: scale(1.04);
   }
@@ -1579,7 +1586,7 @@
   .mech-img-tall {
     aspect-ratio: 9 / 16;
     border-radius: var(--r-card);
-    background: linear-gradient(135deg, #F5F2EE 0%, #DDD3C5 100%);
+    background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
     overflow: hidden;
     position: relative;
   }
@@ -1590,7 +1597,7 @@
   }
   .mech-img-stack > div {
     border-radius: var(--r-card);
-    background: linear-gradient(135deg, #F5F2EE 0%, #DDD3C5 100%);
+    background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
     overflow: hidden;
     position: relative;
   }
@@ -1618,12 +1625,12 @@
   .mech-overlay .overlay-icon {
     width: 38px;
     height: 38px;
-    border-radius: 9999px;
-    background: #F5F2EE;
+    border-radius: 4px;
+    background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #678291;
+    color: #648291;
     flex-shrink: 0;
   }
   .mech-overlay .overlay-icon .icon { width: 18px; height: 18px; }
@@ -1679,9 +1686,9 @@
   .guarantee-badge {
     width: 152px;
     height: 152px;
-    border-radius: 9999px;
-    background: #F5F2EE;
-    border: 2px solid #678291;
+    border-radius: 4px;
+    background: #fff;
+    border: 2px solid #648291;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -1693,13 +1700,13 @@
     content: '';
     position: absolute;
     inset: 8px;
-    border-radius: 9999px;
+    border-radius: 4px;
     border: 1px dashed rgba(103, 130, 145, 0.45);
   }
   .guarantee-badge .badge-icon {
     width: 32px;
     height: 32px;
-    color: #678291;
+    color: #648291;
     margin-bottom: 4px;
   }
   .guarantee-badge .badge-number {
@@ -1758,7 +1765,7 @@
   .guarantee-content li .icon {
     width: 16px;
     height: 16px;
-    color: #678291;
+    color: #648291;
     flex-shrink: 0;
   }
   @media (max-width: 768px) {
@@ -1855,11 +1862,11 @@
     margin: 0 auto 48px;
   }
   .review-pill {
-    background: #F5F2EE;
+    background: #fff;
     color: var(--ink);
     font-size: 13px;
     padding: 7px 14px;
-    border-radius: 9999px;
+    border-radius: 4px;
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -1905,13 +1912,13 @@
   .review-avatar {
     width: 44px;
     height: 44px;
-    border-radius: 9999px;
-    background: #F5F2EE;
+    border-radius: 4px;
+    background: #fff;
     border: 1px solid rgba(17, 17, 17, 0.08);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #90A4AE;
+    color: #648291;
     flex-shrink: 0;
     overflow: hidden;
   }
@@ -1927,7 +1934,7 @@
   .review-stars {
     margin: 6px 0 8px;
   }
-  .review-stars .icon { width: 13px; height: 13px; color: #90A4AE; }
+  .review-stars .icon { width: 13px; height: 13px; color: #C49A2A; }
   .review-title {
     font-size: 16px;
     font-weight: 600;
@@ -1948,7 +1955,7 @@
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    color: #678291;
+    color: #648291;
     font-weight: 600;
   }
   .review-date .verified .icon { width: 13px; height: 13px; }
@@ -1967,7 +1974,7 @@
     width: 78px;
     height: 78px;
     border-radius: 8px;
-    background: linear-gradient(135deg, #F5F2EE 0%, #DDD3C5 100%);
+    background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
     position: relative;
     overflow: hidden;
     cursor: pointer;
@@ -1988,7 +1995,7 @@
     transform: translate(-50%, -50%);
     width: 28px;
     height: 28px;
-    border-radius: 9999px;
+    border-radius: 4px;
     background: rgba(255, 255, 255, 0.95);
     display: flex;
     align-items: center;
@@ -2003,10 +2010,10 @@
      ============================================================ */
   .faq-grid {
     display: grid;
-    grid-template-columns: 340px 1fr;
-    gap: 48px;
+    grid-template-columns: 380px 1fr;
+    gap: 72px;
     align-items: start;
-    margin-top: 40px;
+    margin-top: 48px;
   }
   .faq-authority {
     position: sticky;
@@ -2021,11 +2028,11 @@
     width: 100%;
     aspect-ratio: 3 / 4;
     border-radius: var(--r-card);
-    background: linear-gradient(135deg, #F5F2EE 0%, #DDD3C5 100%);
+    background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #90A4AE;
+    color: #648291;
     margin-bottom: 20px;
     overflow: hidden;
     position: relative;
@@ -2039,7 +2046,7 @@
     bottom: 14px;
     left: 14px;
     background: #fff;
-    border-radius: 9999px;
+    border-radius: 4px;
     padding: 6px 12px 6px 8px;
     font-size: 10px;
     font-weight: 600;
@@ -2054,7 +2061,7 @@
   .authority-image .approved-badge .icon {
     width: 14px;
     height: 14px;
-    color: #678291;
+    color: #648291;
   }
   .auth-name {
     font-size: 18px;
@@ -2090,7 +2097,7 @@
     font-style: italic;
     margin: 16px 0 0;
     padding-left: 16px;
-    border-left: 2px solid #678291;
+    border-left: 2px solid #648291;
   }
   .faq-list {
     max-width: 100%;
@@ -2199,7 +2206,7 @@
   .social-icons { display: flex; gap: 12px; margin-top: 4px; }
   .social-icons a {
     width: 36px; height: 36px;
-    border-radius: 9999px;
+    border-radius: 4px;
     border: 1px solid var(--border);
     display: inline-flex;
     align-items: center;
@@ -2227,7 +2234,7 @@
   }
   .newsletter input:focus { border-color: var(--ink); }
   .newsletter button {
-    background: #678291;
+    background: #648291;
     color: #fff;
     border: none;
     border-radius: var(--pill);
@@ -2239,7 +2246,7 @@
     text-transform: uppercase;
     transition: background 180ms ease;
   }
-  .newsletter button:hover { background: #556E7A; }
+  .newsletter button:hover { background: #4e6878; }
   .legal-bar {
     margin-top: 40px;
     padding-top: 24px;
@@ -2320,7 +2327,7 @@
     display: none;
     width: 44px;
     height: 44px;
-    border-radius: 9999px;
+    border-radius: 4px;
     border: 1px solid transparent;
     background: transparent;
     align-items: center;
@@ -2383,7 +2390,7 @@
   }
   .nav-drawer-close {
     width: 44px; height: 44px;
-    border-radius: 9999px;
+    border-radius: 4px;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -2424,7 +2431,7 @@
     align-items: center;
     justify-content: center;
     height: 50px;
-    background: #678291;
+    background: #648291;
     color: #fff;
     border-radius: var(--pill);
     font-weight: 600;
@@ -2434,7 +2441,7 @@
     text-decoration: none;
     transition: background 180ms ease;
   }
-  .nav-drawer-cta a:hover { background: #556E7A; }
+  .nav-drawer-cta a:hover { background: #4e6878; }
 
   /* ============================================================
      TARGETED 1.1x TYPE SCALE
@@ -2445,9 +2452,9 @@
      ============================================================ */
 
   /* 1. Top fold (hero) */
-  .hero .h1 { font-size: 42px; line-height: 50px; }
-  .hero .review-row { font-size: 15px; }
-  .hero .body { font-size: 18px; line-height: 28px; }
+  .hero .h1 { font-family: 'Tenor Sans', serif; font-size: 40px; font-weight: 400; line-height: 1.15; }
+  .hero .review-row { font-size: 0.9375rem; }
+  .hero .body { font-size: clamp(1rem, 1.25vw, 1.125rem); line-height: 1.6; }
   .hero .badge { font-size: 12px; }
   .hero .tab-btn { font-size: 13px; }
   .hero .tab-panel blockquote { font-size: 17px; line-height: 28px; }
@@ -2533,7 +2540,7 @@
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: #678291;
+    color: #648291;
     border-bottom: 1px solid transparent;
     padding-bottom: 1px;
     transition: color 200ms ease, border-color 200ms ease, gap 200ms ease;
@@ -2541,7 +2548,7 @@
     white-space: nowrap;
   }
   .see-all-reviews:hover {
-    color: #556E7A;
+    color: #4e6878;
     border-bottom-color: currentColor;
     gap: 10px;
   }
@@ -2776,26 +2783,23 @@
      ============================================================ -->
 <header class="site-header" id="header">
   <div class="container header-inner">
-    <a href="#" class="logo">LUNE</a>
+    <a href="#" class="logo">
+      <img src="https://www.luneusa.com/cdn/shop/files/Lune_logo_moon_500x_0c0e5d7e-4762-47d2-8494-931a4a4cd3d5.png" alt="Lune" />
+    </a>
     <nav class="main-nav">
-      <a href="#">Nerve Balm</a>
-      <a href="#zone-ingredients">Ingredients</a>
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">Subscribe &amp; Save</a>
       <a href="#zone-testimonials">Reviews</a>
-      <a href="#zone-faq">FAQ</a>
     </nav>
-    <div class="header-icons">
-      <button class="icon-btn header-icon-search" aria-label="Search">
+    <div class="header-right">
+      <button class="icon-btn" aria-label="Search">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
       </button>
-      <button class="icon-btn header-icon-account" aria-label="Account">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.5 3.6-8 8-8s8 3.5 8 8"/></svg>
-      </button>
+      <a href="#" class="header-login">Log in</a>
       <button class="icon-btn cart-badge" aria-label="Cart">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M6 6 4 3H2"/></svg>
       </button>
-    </div>
-    <div class="header-cta">
-      <button class="btn-pill">Get Relief <span aria-hidden="true">→</span></button>
     </div>
     <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu" aria-expanded="false">
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
@@ -2813,16 +2817,16 @@
 <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
   <div class="nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation">
     <div class="nav-drawer-head">
-      <span class="nav-drawer-logo">LUNE</span>
+      <img src="https://www.luneusa.com/cdn/shop/files/Lune_logo_moon_500x_0c0e5d7e-4762-47d2-8494-931a4a4cd3d5.png" alt="Lune" style="height:32px;width:auto;" />
       <button class="nav-drawer-close" id="nav-drawer-close" aria-label="Close menu">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
       </button>
     </div>
     <ul class="nav-drawer-links">
-      <li><a href="#">Nerve Balm</a></li>
-      <li><a href="#zone-ingredients">Ingredients</a></li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Subscribe &amp; Save</a></li>
       <li><a href="#zone-testimonials">Reviews</a></li>
-      <li><a href="#zone-faq">FAQ</a></li>
     </ul>
     <div class="nav-drawer-cta">
       <a href="#buy">Get Relief →</a>
@@ -2835,14 +2839,13 @@
      ============================================================ -->
 <style>
   .rx-note {
-    background: var(--tint);
-    border-bottom: 1px solid var(--border);
+    background: #ffffff;
     padding: 44px 0 40px;
   }
   .rx-note-grid {
     display: grid;
-    grid-template-columns: 1fr 260px;
-    gap: 48px;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
     align-items: center;
   }
   .rx-note-inner {
@@ -2852,12 +2855,11 @@
   .rx-note-img {
     border-radius: 12px;
     overflow: hidden;
-    aspect-ratio: 1 / 1;
     flex-shrink: 0;
   }
   .rx-note-img img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     object-position: center top;
     display: block;
@@ -2941,7 +2943,7 @@
         </a>
       </div>
 
-      <div class="rx-note-img"><img src="images/lune-rx-note-hero.png" alt="Lune Nerve Balm product" /></div>
+      <div class="rx-note-img"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-before-purchase.png" alt="Lune Nerve Balm before purchase" /></div>
 
     </div>
   </div>
@@ -2951,7 +2953,7 @@
      ZONE 0  DETAILED COMPARISON TABLE (Option B · CSS Grid rows)
      ============================================================ -->
 <style>
-  .zd-section { background: var(--bg); }
+  .zd-section { background: linear-gradient(to bottom, #ffffff 0%, #F5F2EE 100px, #F5F2EE 100%); }
 
   .zd-header {
     max-width: 640px;
@@ -2978,24 +2980,26 @@
   .zd-col-header {
     display: grid;
     grid-template-columns: 28% 1fr 1fr;
-    border: 1px solid var(--border);
-    border-bottom: none;
-    border-radius: 12px 12px 0 0;
+    border: none;
+    border-bottom: 1px solid #212326;
+    border-radius: 0;
     overflow: hidden;
-    background: var(--tint);
+    background: transparent;
   }
   .zd-ch {
-    padding: 14px 20px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    padding: 11px 20px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 22px;
+    letter-spacing: 0;
+    text-transform: none;
   }
-  .zd-ch:first-child { border-right: 1px solid var(--border); color: transparent; }
+  .zd-ch:first-child { border-right: none; color: transparent; }
   .zd-ch.zd-ch-us {
-    color: var(--green);
-    background: rgba(79,111,82,0.07);
-    border-right: 1px solid var(--border);
+    color: var(--ink);
+    background: none;
+    border-right: none;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -3022,48 +3026,56 @@
   }
 
   /* Rows wrapper */
+  .zd-table-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
   .zd-rows {
-    border: 1px solid var(--border);
-    border-top: none;
-    border-radius: 0 0 12px 12px;
-    overflow: hidden;
+    border: none;
   }
 
   /* Each row */
   .zd-row {
     display: grid;
     grid-template-columns: 28% 1fr 1fr;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid #212326;
+    min-height: 88px;
   }
   .zd-row:last-child { border-bottom: none; }
 
   .zd-attr {
-    padding: 16px 20px;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--muted);
-    border-right: 1px solid var(--border);
+    padding: 0 20px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 22px;
+    color: var(--ink);
+    border-right: none;
     display: flex;
-    align-items: flex-start;
-    padding-top: 18px;
+    align-items: center;
   }
   .zd-us {
-    padding: 16px 20px;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 26px;
+    padding: 0 20px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 22px;
     color: var(--ink);
-    background: rgba(79,111,82,0.04);
-    border-right: 1px solid var(--border);
+    background: none;
+    border-right: none;
+    display: flex;
+    align-items: center;
   }
   .zd-them {
-    padding: 16px 20px;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 26px;
-    color: var(--muted);
+    padding: 0 20px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 22px;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
   }
 
   /* Price row */
@@ -3077,32 +3089,34 @@
 
   /* ── Hybrid footnote (B card + C stacked list) ──────────────── */
   .zd-fn-hybrid {
-    background: #F5F2EE;
+    background: #fff;
     border-radius: 12px;
-    margin: 32px 0 0;
+    margin: 72px 0 0;
     display: grid;
-    grid-template-columns: 1fr 360px;
+    grid-template-columns: 1fr 1fr;
     overflow: hidden;
     align-items: stretch;
   }
   .zd-fn-h-body {
     padding: 32px 36px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
   }
   .zd-fn-h-img {
     position: relative;
     overflow: hidden;
     border-radius: 0 12px 12px 0;
     background: #E8E2D8;
+    display: flex;
+    align-items: stretch;
   }
   .zd-fn-h-img-inner {
-    position: absolute;
-    inset: 0;
+    width: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    color: #9A8F83;
   }
   .zd-fn-h-img-inner svg {
     width: 36px; height: 36px;
@@ -3360,6 +3374,7 @@
       </div>
     </div>
 
+    <div class="zd-table-wrap">
     <div class="zd-scroll-outer">
     <div class="zd-scroll-wrap">
     <div class="zd-col-header">
@@ -3368,7 +3383,7 @@
         <img class="zd-ch-us-img" src="https://www.luneusa.com/cdn/shop/files/nerve-balm-vs-others.png?v=1735928901" alt="Nerve Balm" loading="lazy" />
         Nerve Balm™
       </div>
-      <div class="zd-ch zd-ch-them"><img class="zd-ch-them-img" src="images/lune-competitor-product.png" alt="Typical Magnesium Lotions" />Typical Magnesium Lotions</div>
+      <div class="zd-ch zd-ch-them"><img class="zd-ch-them-img" src="https://datavinciteam.github.io/Lune-Lander/images/lune-competitor-product.png" alt="Typical Magnesium Lotions" />Typical Magnesium Lotions</div>
     </div>
 
     <div class="zd-rows">
@@ -3379,7 +3394,7 @@
         <div class="zd-them">Single mechanism: magnesium calming + surface cooling</div>
       </div>
 
-      <div class="zd-row">
+      <div class="zd-row" style="min-height: 140px;">
         <div class="zd-attr">Key Active Ingredients</div>
         <div class="zd-us">CBD/Hemp Oil, Frankincense, Capsicum, Glucosamine, DHA, Magnesium, Vitamin B Complex, Arnica, MSM</div>
         <div class="zd-them">Magnesium Chloride, Menthol (often under 1%), Arnica, Chamomile</div>
@@ -3418,6 +3433,7 @@
     </div>
     </div><!-- /.zd-scroll-wrap -->
     </div><!-- /.zd-scroll-outer -->
+    </div><!-- /.zd-table-wrap -->
 
     <!-- ── Hybrid footnote: warm card + stacked comparison + CTA ─ -->
     <div class="zd-fn-hybrid">
@@ -3450,7 +3466,7 @@
 
       <!-- Right: image placeholder,flush to card edges vertically and right -->
       <div class="zd-fn-h-img">
-        <div class="zd-fn-h-img-inner" style="padding:0;"><img src="images/lune-burning-section.png" alt="Nerve Balm product" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+        <div class="zd-fn-h-img-inner" style="padding:0;"><img src="https://www.luneusa.com/cdn/shop/files/natural-pain-relief-cream-to-fix-nerve-pain.png?v=1735928785&width=750" alt="Nerve Balm product" style="width:100%;height:auto;object-fit:contain;display:block;" /></div>
       </div>
     </div>
 
@@ -3464,14 +3480,14 @@
   /* ── Three-Systems Accordion Section ───────────────────────── */
   .ts-section {
     padding: 72px 0 80px;
-    background: #fff;
+    background: #000000;
   }
   .ts-pre {
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--green);
+    color: #ffffff;
     margin: 0 0 14px;
     display: block;
   }
@@ -3480,14 +3496,14 @@
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.02em;
-    color: var(--ink);
+    color: #ffffff;
     margin: 0 0 16px;
     text-wrap: balance;
   }
   .ts-intro {
     font-size: 17px;
     line-height: 28px;
-    color: var(--muted);
+    color: #ffffff;
     margin: 0 0 48px;
     max-width: 640px;
   }
@@ -3496,7 +3512,7 @@
   .ts-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0 56px;
+    gap: 0 72px;
     align-items: start;
   }
 
@@ -3504,10 +3520,10 @@
   .ts-img-panel {
     position: sticky;
     top: 40px;
-    border-radius: 14px;
+    border-radius: 4px;
     overflow: hidden;
     aspect-ratio: 1 / 1;
-    background: var(--tint);
+    background: #222222;
   }
   .ts-img-slide {
     position: absolute;
@@ -3523,9 +3539,9 @@
   .ts-img-slide.ts-active { opacity: 1; }
 
   /* Placeholder colours per system */
-  .ts-img-slide[data-sys="1"] { background: #EAF0EC; }
-  .ts-img-slide[data-sys="2"] { background: #F0EBEA; }
-  .ts-img-slide[data-sys="3"] { background: #EAEbF0; }
+  .ts-img-slide[data-sys="1"] { background: #1e2a22; }
+  .ts-img-slide[data-sys="2"] { background: #2a1e1e; }
+  .ts-img-slide[data-sys="3"] { background: #1e1e2a; }
 
   .ts-img-icon {
     width: 56px; height: 56px;
@@ -3536,8 +3552,7 @@
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--muted);
-    opacity: 0.7;
+    color: #ffffff;
   }
   .ts-img-num {
     position: absolute;
@@ -3547,8 +3562,7 @@
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--muted);
-    opacity: 0.5;
+    color: #ffffff;
   }
 
   /* ── Right: accordion list ─────────────────────────────────── */
@@ -3556,10 +3570,10 @@
     display: flex;
     flex-direction: column;
     gap: 0;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid rgba(255,255,255,0.3);
   }
   .ts-item {
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(255,255,255,0.3);
   }
   .ts-trigger {
     width: 100%;
@@ -3577,12 +3591,12 @@
   .ts-num-badge {
     flex-shrink: 0;
     width: 36px; height: 36px;
-    border-radius: 50%;
-    border: 1.5px solid var(--border);
+    border-radius: 4px;
+    border: 1.5px solid #ffffff;
     display: flex; align-items: center; justify-content: center;
     font-size: 13px;
     font-weight: 700;
-    color: var(--muted);
+    color: #ffffff;
     transition: background 220ms, border-color 220ms, color 220ms;
   }
   .ts-item.ts-open .ts-num-badge {
@@ -3594,7 +3608,7 @@
     flex: 1;
     font-size: 20px;
     font-weight: 700;
-    color: var(--ink);
+    color: #ffffff;
     line-height: 1.25;
     transition: color 180ms;
   }
@@ -3602,7 +3616,7 @@
   .ts-chevron {
     flex-shrink: 0;
     width: 20px; height: 20px;
-    color: var(--muted);
+    color: #ffffff;
     transition: transform 280ms ease;
   }
   .ts-item.ts-open .ts-chevron { transform: rotate(180deg); }
@@ -3618,7 +3632,7 @@
   .ts-body-text {
     font-size: 17px;
     line-height: 29px;
-    color: var(--muted);
+    color: #ffffff;
     margin: 0;
   }
 
@@ -3626,14 +3640,14 @@
   .ts-bottom {
     margin: 52px 0 0;
     padding: 24px 28px;
-    background: var(--tint);
+    background: rgba(255,255,255,0.07);
     border-left: 3px solid var(--green);
-    border-radius: 0 8px 8px 0;
+    border-radius: 0 4px 4px 0;
   }
   .ts-bottom p {
     font-size: 17px;
     line-height: 28px;
-    color: var(--ink);
+    color: #ffffff;
     margin: 0;
   }
   .ts-bottom strong { color: var(--green); }
@@ -3683,13 +3697,15 @@
       <div class="ts-img-panel" aria-hidden="true">
 
         <div class="ts-img-slide ts-active" data-sys="1" style="padding:0;overflow:hidden;">
-          <img src="images/lune-circulation-ai.png" alt="Aged hands showing restored circulation" style="width:100%;height:100%;object-fit:cover;display:block;" />
+          <img src="https://www.luneusa.com/cdn/shop/files/improved-circulation-nerve-balm-nerve-pain-cream.png?v=1735928734&width=750" alt="Improved circulation with Nerve Balm" style="width:100%;height:100%;object-fit:cover;display:block;" />
         </div>
 
-             <div class="ts-img-slide" data-sys="2" style="padding:0;overflow:hidden;"><img src="images/lune-calm-inflammation.png" alt="Calm Inflammation" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+        <div class="ts-img-slide" data-sys="2" style="padding:0;overflow:hidden;">
+          <img src="https://www.luneusa.com/cdn/shop/files/nerve-cream-for-pain-discomfort.png?v=1735928862&width=750" alt="Calm inflammation with Nerve Balm" style="width:100%;height:100%;object-fit:cover;display:block;" />
+        </div>
 
         <div class="ts-img-slide" data-sys="3" style="padding:0;overflow:hidden;">
-          <img src="images/lune-nerve-signals-ai.png" alt="Hands massaging Lune Nerve Balm into foot arch" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;" />
+          <img src="https://www.luneusa.com/cdn/shop/files/reduce-inflammation-nerve-balm-nerve-pain-cream.jpg?v=1726692130&width=750" alt="Calm overactive nerve signals with Nerve Balm" style="width:100%;height:100%;object-fit:cover;display:block;" />
         </div>
 
       </div>
@@ -3743,15 +3759,15 @@
         </div>
 
         <div class="sc-cta-wrap" style="margin-top:44px; align-items:center;">
-          <a href="#buy" class="sc-cta sc-cta-green">Start Treating All 3 Causes,Risk Free</a>
-          <span class="sc-cta-sub">30-day guarantee · Free shipping · Made in the USA</span>
+          <a href="#buy" class="sc-cta sc-cta-white">Start Treating All 3 Causes, Risk Free</a>
+          <span class="sc-cta-sub" style="color:#ffffff;">30-day guarantee · Free shipping · Made in the USA</span>
         </div>
       </div><!-- /accordion -->
     </div><!-- /ts-grid -->
 
     <!-- Bottom callout -->
     <div class="ts-bottom">
-      <p>Most creams like Mamabear Oasis on the market address one of these three systems at best. <strong>Nerve Balms, instead, are formulated to address all three simultaneously.</strong> That is not a marketing claim,it is a formulation decision backed by the ingredient list.</p>
+      <p>Most creams like Mamabear Oasis on the market address one of these three systems at best. Nerve Balms, instead, are formulated to address all three simultaneously. That is not a marketing claim,it is a formulation decision backed by the ingredient list.</p>
     </div>
 
   </div>
@@ -4081,8 +4097,8 @@
 
       <!-- Left: sticky detail panel -->
       <div class="ing-panel" id="ing-panel">
-        <div class="ing-panel-img" id="ing-panel-img" style="background:#EAF0EC;padding:0;overflow:hidden;position:relative;"><img class="ing-panel-real-img" src="images/lune-hemp-oil-ai.png" alt="CBD / Hemp Oil" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;" /><img class="ing-panel-frank-img" src="images/lune-frankincense.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;" alt="Frankincense resin"><img class="ing-panel-caps-img" src="images/lune-capsicum.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;" alt="Capsicum pepper"><img class="ing-panel-gluco-img" src="images/lune-glucosamine.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;" alt="Glucosamine"><img class="ing-panel-dha-img" src="images/lune-dha-omega.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;" alt="DHA Omega Oil"><img class="ing-panel-vitb-img-desktop" src="images/lune-vitamin-b.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;" alt="Vitamin B Complex">
-<img class="ing-panel-mag-img" style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" src="images/lune-magnesium-arnica-msm.png"/>          
+        <div class="ing-panel-img" id="ing-panel-img" style="background:#EAF0EC;padding:0;overflow:hidden;position:relative;"><img class="ing-panel-real-img" src="https://datavinciteam.github.io/Lune-Lander/images/lune-hemp-oil-ai.png" alt="CBD / Hemp Oil" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;" /><img class="ing-panel-frank-img" src="https://datavinciteam.github.io/Lune-Lander/images/lune-frankincense.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;" alt="Frankincense resin"><img class="ing-panel-caps-img" src="https://datavinciteam.github.io/Lune-Lander/images/lune-capsicum.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;" alt="Capsicum pepper"><img class="ing-panel-gluco-img" src="https://datavinciteam.github.io/Lune-Lander/images/lune-glucosamine.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;" alt="Glucosamine"><img class="ing-panel-dha-img" src="https://datavinciteam.github.io/Lune-Lander/images/lune-dha-omega.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;" alt="DHA Omega Oil"><img class="ing-panel-vitb-img-desktop" src="https://datavinciteam.github.io/Lune-Lander/images/lune-vitamin-b.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;" alt="Vitamin B Complex">
+<img class="ing-panel-mag-img" style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" src="https://datavinciteam.github.io/Lune-Lander/images/lune-magnesium-arnica-msm.png"/>          
         </div>
         <div class="ing-panel-body">
           <h3 class="ing-panel-name" id="ing-panel-name">CBD / Hemp Oil</h3>
@@ -4099,7 +4115,7 @@
             <svg class="ing-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             <span class="ing-plus" aria-hidden="true">+</span>
           </button>
-          <div class="ing-mobile-body" id="ing-mb-0"><div class="ing-mobile-body-inner"><div class="ing-mobile-img" style="background:#EAF0EC;padding:0;overflow:hidden;"><img src="images/lune-hemp-oil-ai.png" alt="CBD / Hemp Oil" style="width:100%;height:100%;object-fit:cover;display:block;" />
+          <div class="ing-mobile-body" id="ing-mb-0"><div class="ing-mobile-body-inner"><div class="ing-mobile-img" style="background:#EAF0EC;padding:0;overflow:hidden;"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-hemp-oil-ai.png" alt="CBD / Hemp Oil" style="width:100%;height:100%;object-fit:cover;display:block;" />
   </div>Nutrient-dense oil that conditions and soothes sensitive skin. Works at the nerve receptor level to calm overactive signaling. This is not a trace amount for label appeal,it is a core functional ingredient. 100% legal, zero THC.</div></div>
         </div>
 
@@ -4109,7 +4125,7 @@
             <svg class="ing-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             <span class="ing-plus" aria-hidden="true">+</span>
           </button>
-          <div class="ing-mobile-body" id="ing-mb-1"><div class="ing-mobile-body-inner"><div class="ing-mobile-img" style="background:#F0EBEA;padding:0;overflow:hidden;position:relative;"><img src="images/lune-frankincense.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="Frankincense resin"><img class="ing-panel-caps-img" src="images/lune-capsicum.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;" alt="Capsicum pepper"><img class="ing-panel-gluco-img" src="images/lune-glucosamine.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;" alt="Glucosamine"><img class="ing-panel-dha-img" src="images/lune-dha-omega.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;" alt="DHA Omega Oil"><img class="ing-panel-vitb-img-desktop" src="images/lune-vitamin-b.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;" alt="Vitamin B Complex"></div>One of the oldest known anti-inflammatory botanicals. Used therapeutically for centuries. Provides longer-lasting comfort compared to menthol-dominant formulas because it addresses inflammation rather than just creating a cooling sensation.</div></div>
+          <div class="ing-mobile-body" id="ing-mb-1"><div class="ing-mobile-body-inner"><div class="ing-mobile-img" style="background:#F0EBEA;padding:0;overflow:hidden;position:relative;"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-frankincense.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="Frankincense resin"><img class="ing-panel-caps-img" src="https://datavinciteam.github.io/Lune-Lander/images/lune-capsicum.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;" alt="Capsicum pepper"><img class="ing-panel-gluco-img" src="https://datavinciteam.github.io/Lune-Lander/images/lune-glucosamine.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;" alt="Glucosamine"><img class="ing-panel-dha-img" src="https://datavinciteam.github.io/Lune-Lander/images/lune-dha-omega.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;" alt="DHA Omega Oil"><img class="ing-panel-vitb-img-desktop" src="https://datavinciteam.github.io/Lune-Lander/images/lune-vitamin-b.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;" alt="Vitamin B Complex"></div>One of the oldest known anti-inflammatory botanicals. Used therapeutically for centuries. Provides longer-lasting comfort compared to menthol-dominant formulas because it addresses inflammation rather than just creating a cooling sensation.</div></div>
         </div>
 
         <div class="ing-item" role="listitem" data-ing="2">
@@ -4118,7 +4134,7 @@
             <svg class="ing-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             <span class="ing-plus" aria-hidden="true">+</span>
           </button>
-          <div class="ing-mobile-body" id="ing-mb-2"><div class="ing-mobile-body-inner"><div class="ing-mobile-img" style="background:#F0EDE6;padding:0;overflow:hidden;position:relative;"><img src="images/lune-capsicum.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="Capsicum pepper"></div>Supports local circulation by encouraging blood flow to the application area. Helps deliver oxygen and nutrients directly to starved nerve endings. This is the ingredient most magnesium lotions do not include,and it is the reason many customers report feeling a difference within the first application.</div></div>
+          <div class="ing-mobile-body" id="ing-mb-2"><div class="ing-mobile-body-inner"><div class="ing-mobile-img" style="background:#F0EDE6;padding:0;overflow:hidden;position:relative;"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-capsicum.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="Capsicum pepper"></div>Supports local circulation by encouraging blood flow to the application area. Helps deliver oxygen and nutrients directly to starved nerve endings. This is the ingredient most magnesium lotions do not include,and it is the reason many customers report feeling a difference within the first application.</div></div>
         </div>
 
         <div class="ing-item" role="listitem" data-ing="3">
@@ -4127,7 +4143,7 @@
             <svg class="ing-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             <span class="ing-plus" aria-hidden="true">+</span>
           </button>
-          <div class="ing-mobile-body" id="ing-mb-3"><div class="ing-mobile-body-inner"><div class="ing-mobile-img" style="background:#EBF0EF;padding:0;overflow:hidden;position:relative;"><img src="images/lune-glucosamine.png" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;" alt="Glucosamine crystals" /></div>Supports the structural repair of nerve-related tissues. Most commonly associated with joint health, but plays a meaningful role in nerve recovery when delivered topically alongside complementary actives.</div></div>
+          <div class="ing-mobile-body" id="ing-mb-3"><div class="ing-mobile-body-inner"><div class="ing-mobile-img" style="background:#EBF0EF;padding:0;overflow:hidden;position:relative;"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-glucosamine.png" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;" alt="Glucosamine crystals" /></div>Supports the structural repair of nerve-related tissues. Most commonly associated with joint health, but plays a meaningful role in nerve recovery when delivered topically alongside complementary actives.</div></div>
         </div>
 
         <div class="ing-item" role="listitem" data-ing="4">
@@ -4136,7 +4152,7 @@
             <svg class="ing-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             <span class="ing-plus" aria-hidden="true">+</span>
           </button>
-          <div class="ing-mobile-body" id="ing-mb-4"><div class="ing-mobile-body-inner"><div class="ing-mobile-img" style="background:#EAEcF0;padding:0;overflow:hidden;position:relative;"><img src="images/lune-dha-omega.png" style="width:100%;height:100%;object-fit:cover;display:block;" alt="DHA Omega Oil"></div>Helps rebuild nerve cell membranes,think of it as fresh insulation on frayed electrical wiring. Supports long-term nerve health rather than just short-term symptom relief.</div></div>
+          <div class="ing-mobile-body" id="ing-mb-4"><div class="ing-mobile-body-inner"><div class="ing-mobile-img" style="background:#EAEcF0;padding:0;overflow:hidden;position:relative;"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-dha-omega.png" style="width:100%;height:100%;object-fit:cover;display:block;" alt="DHA Omega Oil"></div>Helps rebuild nerve cell membranes,think of it as fresh insulation on frayed electrical wiring. Supports long-term nerve health rather than just short-term symptom relief.</div></div>
         </div>
 
         <div class="ing-item" role="listitem" data-ing="5">
@@ -4145,7 +4161,7 @@
             <svg class="ing-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             <span class="ing-plus" aria-hidden="true">+</span>
           </button>
-          <div class="ing-mobile-body" id="ing-mb-5"><div class="ing-mobile-body-inner"><div class="ing-mobile-img" style="background:#F0EEF0;padding:0;overflow:hidden;position:relative;"><img src="images/lune-vitamin-b.png" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;" alt="Vitamin B foods" /></div>Essential for nerve function and repair. Deficiency in B vitamins is directly linked to worsening neuropathy symptoms. Nerve Balm delivers them topically, right where they are needed.</div></div>
+          <div class="ing-mobile-body" id="ing-mb-5"><div class="ing-mobile-body-inner"><div class="ing-mobile-img" style="background:#F0EEF0;padding:0;overflow:hidden;position:relative;"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-vitamin-b.png" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;" alt="Vitamin B foods" /></div>Essential for nerve function and repair. Deficiency in B vitamins is directly linked to worsening neuropathy symptoms. Nerve Balm delivers them topically, right where they are needed.</div></div>
         </div>
 
         <div class="ing-item" role="listitem" data-ing="6">
@@ -4154,7 +4170,7 @@
             <svg class="ing-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             <span class="ing-plus" aria-hidden="true">+</span>
           </button>
-          <div class="ing-mobile-body" id="ing-mb-6"><div class="ing-mobile-body-inner"><div class="ing-mobile-img" style="background:#EFF0EA;overflow:hidden;"><img src="images/lune-magnesium-arnica-msm.png" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>The foundation that Nerve Balm shares with simpler formulas,but here they are part of a complete system, not the entire system.</div></div>
+          <div class="ing-mobile-body" id="ing-mb-6"><div class="ing-mobile-body-inner"><div class="ing-mobile-img" style="background:#EFF0EA;overflow:hidden;"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-magnesium-arnica-msm.png" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>The foundation that Nerve Balm shares with simpler formulas,but here they are part of a complete system, not the entire system.</div></div>
         </div>
 
         <div class="sc-cta-wrap" style="margin-top:24px; padding-top:24px;">
@@ -4302,7 +4318,7 @@
 
   /* ── Hero testimonial ────────────────────────────────────────── */
   .swt-hero {
-    background: #F5F2EE;
+    background: #fff;
     border-radius: 14px;
     margin: 0 0 28px;
     display: grid;
@@ -4469,24 +4485,25 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 17px;
-    font-weight: 600;
-    padding: 15px 32px;
-    border-radius: var(--pill);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 16px 36px;
+    border-radius: 2px;
     border: none;
     cursor: pointer;
-    font-family: inherit;
+    font-family: 'Nunito', sans-serif;
     text-decoration: none;
-    letter-spacing: 0.01em;
-    transition: background 180ms, transform 120ms;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: background 180ms, transform 120ms, box-shadow 180ms;
   }
-  .sc-cta:hover { transform: translateY(-1px); }
-  .sc-cta-green { background: var(--green); color: #fff; }
-  .sc-cta-green:hover { background: #3d5640; }
+  .sc-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+  .sc-cta-green { background: #4a6072; color: #fff; }
+  .sc-cta-green:hover { background: #3a4f5f; }
   .sc-cta-ink { background: var(--ink); color: #fff; }
-  .sc-cta-ink:hover { background: #2a2a2a; }
-  .sc-cta-white { background: #fff; color: var(--ink); }
-  .sc-cta-white:hover { background: #f0eeeb; }
+  .sc-cta-ink:hover { background: #2d2e2a; }
+  .sc-cta-white { background: var(--bg); color: var(--ink); border: 1.5px solid var(--border); }
+  .sc-cta-white:hover { background: var(--tint-alt); }
   .sc-cta-sub {
     font-size: 13px;
     color: var(--muted);
@@ -4521,8 +4538,8 @@
   }
   .pj-grid {
     display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 56px;
+    grid-template-columns: 1fr 360px;
+    gap: 72px;
     align-items: start;
     margin: 0 0 48px;
   }
@@ -4633,7 +4650,7 @@
   }
   .pj-card-divider {
     border: none;
-    border-top: 1px solid rgba(255,255,255,0.15);
+    border-top: 1px solid rgba(255,255,255,0.3);
     margin: 0 0 20px;
   }
   .pj-card-vs {
@@ -4859,7 +4876,7 @@
         <div class="swt-hero-author">Verified Lune Customer <span class="swt-verified">✓ Verified</span></div>
       </div>
       <div class="swt-portrait" style="background:#C8C0B4;">
-        <img src="images/customer-story-01.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+        <img src="https://datavinciteam.github.io/Lune-Lander/images/customer-story-01.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
       </div>
     </div>
 
@@ -4883,7 +4900,7 @@
           </div>
         </div>
         <div class="swt-portrait" style="background:#BFC5BE; border-radius:0 11px 11px 0;">
-          <img src="images/customer-story-2.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+          <img src="https://datavinciteam.github.io/Lune-Lander/images/customer-story-2.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
         </div>
       </div>
 
@@ -4904,7 +4921,7 @@
           </div>
         </div>
         <div class="swt-portrait" style="background:#C5BFB0; border-radius:0 11px 11px 0;">
-          <img src="images/customer-story-3.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+          <img src="https://datavinciteam.github.io/Lune-Lander/images/customer-story-3.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
         </div>
       </div>
 
@@ -4925,7 +4942,7 @@
           </div>
         </div>
         <div class="swt-portrait" style="background:#B8C2C5; border-radius:0 11px 11px 0;">
-          <img src="images/customer-story-04.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+          <img src="https://datavinciteam.github.io/Lune-Lander/images/customer-story-04.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
         </div>
       </div>
 
@@ -4946,7 +4963,7 @@
           </div>
         </div>
         <div class="swt-portrait" style="background:#C2BAB0; border-radius:0 11px 11px 0;">
-          <img src="images/customer-story-5.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+          <img src="https://datavinciteam.github.io/Lune-Lander/images/customer-story-5.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
         </div>
       </div>
 
@@ -5053,12 +5070,12 @@
     <!-- Gallery -->
     <div class="gallery">
       <div class="gallery-frame">
-        <div class="gallery-slide active"><img src="images/lune-product-hero.png" alt="Nerve Balm product" /></div>
-        <div class="gallery-slide"><img src="images/lune-product-view-2.png" alt="Nerve Balm product view 2"></div>
-        <div class="gallery-slide"><img src="images/lune-product-view-3.png" alt="Nerve Balm product view 3"></div>
-        <div class="gallery-slide"><img src="images/lune-product-view-4.png" alt="Nerve Balm product view 4"></div>
-        <div class="gallery-slide"><img src="images/lune-product-view-5.png" alt="Nerve Balm product view 5"></div>
-        <div class="gallery-slide"><img src="images/lune-product-view-6.png" alt="Nerve Balm product view 6"></div>
+        <div class="gallery-slide active"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-product-hero.png" alt="Nerve Balm product" /></div>
+        <div class="gallery-slide"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-product-view-2.png" alt="Nerve Balm product view 2"></div>
+        <div class="gallery-slide"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-product-view-3.png" alt="Nerve Balm product view 3"></div>
+        <div class="gallery-slide"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-product-view-4.png" alt="Nerve Balm product view 4"></div>
+        <div class="gallery-slide"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-product-view-5.png" alt="Nerve Balm product view 5"></div>
+        <div class="gallery-slide"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-product-view-6.png" alt="Nerve Balm product view 6"></div>
         <button class="carousel-arrow prev" aria-label="Previous">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
         </button>
@@ -5067,12 +5084,12 @@
         </button>
       </div>
       <div class="gallery-thumbs" role="tablist" aria-label="Product image thumbnails">
-        <button class="active" aria-label="Image 1 of 6"><img src="images/lune-product-hero.png" alt="" ><span class="thumb-mark"></span></button>
-        <button aria-label="Image 2 of 6"><img src="images/lune-product-view-2.png" alt="" ><span class="thumb-mark"></span></button>
-        <button aria-label="Image 3 of 6"><img src="images/lune-product-view-3.png" alt="" ><span class="thumb-mark"></span></button>
-        <button aria-label="Image 4 of 6"><img src="images/lune-product-view-4.png" alt="" ><span class="thumb-mark"></span></button>
-        <button aria-label="Image 5 of 6"><img src="images/lune-product-view-5.png" alt="" ><span class="thumb-mark"></span></button>
-        <button aria-label="Image 6 of 6"><img src="images/lune-product-view-6.png" alt="" ><span class="thumb-mark"></span></button>
+        <button class="active" aria-label="Image 1 of 6"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-product-hero.png" alt="" ><span class="thumb-mark"></span></button>
+        <button aria-label="Image 2 of 6"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-product-view-2.png" alt="" ><span class="thumb-mark"></span></button>
+        <button aria-label="Image 3 of 6"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-product-view-3.png" alt="" ><span class="thumb-mark"></span></button>
+        <button aria-label="Image 4 of 6"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-product-view-4.png" alt="" ><span class="thumb-mark"></span></button>
+        <button aria-label="Image 5 of 6"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-product-view-5.png" alt="" ><span class="thumb-mark"></span></button>
+        <button aria-label="Image 6 of 6"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-product-view-6.png" alt="" ><span class="thumb-mark"></span></button>
       </div>
 
       <!-- Rotating reviews  cream card under gallery -->
@@ -5085,7 +5102,7 @@
         <div class="rotator-stack">
           <div class="rotator-slide active">
             <div class="rotator-layout">
-              <div class="rev-avatar" aria-hidden="true"><img src="images/avatar-barbara.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+              <div class="rev-avatar" aria-hidden="true"><img src="https://datavinciteam.github.io/Lune-Lander/images/avatar-barbara.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
               <div class="rev-content">
                 <blockquote>“Two weeks in and I stopped dreading bedtime. <span class="hl">The burning finally quieted down.</span>”</blockquote>
                 <div class="reviewer">
@@ -5187,7 +5204,7 @@
           <div class="tab-panel active" data-panel="reviews">
             <div class="review-layout">
               <div class="review-avatar" aria-hidden="true">
-                <img src="images/avatar-dorothy.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+                <img src="https://datavinciteam.github.io/Lune-Lander/images/avatar-dorothy.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;">
               </div>
               <div class="review-content">
                 <blockquote>“I've had burning feet for 15 years. Tried gabapentin, 4 creams, even prescription patches. Nothing lasted. Within a week of Nerve Balm <span class="hl">I slept through the night</span>. By week two I forgot to think about my feet  and that hasn't happened in a decade.”</blockquote>
@@ -5381,7 +5398,7 @@
 <!-- ============================================================
      ZONE 2  TESTIMONIALS (alternating video + text-pair carousel)
      ============================================================ -->
-<section id="zone-testimonials" class="reveal" style="background: linear-gradient(180deg, #F5F2EE 0%, #F5F2EE 62%, rgba(245, 242, 238, 0.55) 82%, rgba(255, 255, 255, 0.9) 95%, #ffffff 100%);">
+<section id="zone-testimonials" class="reveal" style="background: #ffffff;">
   <div class="container">
     <span class="section-eyebrow">Real Stories</span>
     <h2 class="h-section center">They Were Skeptical Too. Then Their Feet Quieted Down.</h2>
@@ -5418,7 +5435,7 @@
             <span class="star-row" aria-label="5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></span>
             <blockquote>“I'm on my feet 10 hours a day. The buzzing and stabbing made evenings miserable. Two weeks in, <span class="hl">I stopped dreading them.</span>”</blockquote>
             <div class="attribution-row">
-              <div class="testi-avatar" aria-hidden="true"><img src="images/avatar-robert.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+              <div class="testi-avatar" aria-hidden="true"><img src="https://datavinciteam.github.io/Lune-Lander/images/avatar-robert.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
               <div class="attribution"> Robert T., 56 · Texas</div>
             </div>
           </div>
@@ -5426,7 +5443,7 @@
             <span class="star-row" aria-label="5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></span>
             <blockquote>“Skeptical of the price at first. Then I remembered how much I spent on things that didn't work. <span class="hl">This was the last thing I tried.</span>”</blockquote>
             <div class="attribution-row">
-              <div class="testi-avatar" aria-hidden="true"><img src="images/avatar-carol.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+              <div class="testi-avatar" aria-hidden="true"><img src="https://datavinciteam.github.io/Lune-Lander/images/avatar-carol.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
               <div class="attribution"> Carol H., 69 · Florida</div>
             </div>
           </div>
@@ -5453,7 +5470,7 @@
             <span class="star-row" aria-label="5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></span>
             <blockquote>“My doctor was surprised. I just told him <span class="hl">I finally found something that works.</span>”</blockquote>
             <div class="attribution-row">
-              <div class="testi-avatar" aria-hidden="true"><img src="images/avatar-george.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+              <div class="testi-avatar" aria-hidden="true"><img src="https://datavinciteam.github.io/Lune-Lander/images/avatar-george.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
               <div class="attribution"> George M., 74 · North Carolina</div>
             </div>
           </div>
@@ -5461,7 +5478,7 @@
             <span class="star-row" aria-label="5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></span>
             <blockquote>“I didn't think a cream could do what pills couldn't. <span class="hl">I was wrong.</span>”</blockquote>
             <div class="attribution-row">
-              <div class="testi-avatar" aria-hidden="true"><img src="images/avatar-patricia.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+              <div class="testi-avatar" aria-hidden="true"><img src="https://datavinciteam.github.io/Lune-Lander/images/avatar-patricia.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
               <div class="attribution"> Patricia L., 62 · Illinois</div>
             </div>
           </div>
@@ -5488,7 +5505,7 @@
             <span class="star-row" aria-label="5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></span>
             <blockquote>“Tried three other creams. This was the last one  and <span class="hl">the only one I'm still using.</span>”</blockquote>
             <div class="attribution-row">
-              <div class="testi-avatar" aria-hidden="true"><img src="images/avatar-carol.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+              <div class="testi-avatar" aria-hidden="true"><img src="https://datavinciteam.github.io/Lune-Lander/images/avatar-carol.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
               <div class="attribution"> Carol H., 69 · Florida</div>
             </div>
           </div>
@@ -5496,7 +5513,7 @@
             <span class="star-row" aria-label="5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></span>
             <blockquote>“Used a popular cooling cream for months. Nice smell, zero nerve relief. <span class="hl">Nerve Balm was different within the first week.</span>”</blockquote>
             <div class="attribution-row">
-              <div class="testi-avatar" aria-hidden="true"><img src="images/avatar-dorothy.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+              <div class="testi-avatar" aria-hidden="true"><img src="https://datavinciteam.github.io/Lune-Lander/images/avatar-dorothy.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
               <div class="attribution"> Dorothy M., 71 · Ohio</div>
             </div>
           </div>
@@ -5523,7 +5540,7 @@
             <span class="star-row" aria-label="5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></span>
             <blockquote>“Two weeks in and I stopped dreading bedtime. <span class="hl">The burning finally quieted down.</span>”</blockquote>
             <div class="attribution-row">
-              <div class="testi-avatar" aria-hidden="true"><img src="images/avatar-barbara.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+              <div class="testi-avatar" aria-hidden="true"><img src="https://datavinciteam.github.io/Lune-Lander/images/avatar-barbara.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
               <div class="attribution"> Barbara T., 67 · Minnesota</div>
             </div>
           </div>
@@ -5531,7 +5548,7 @@
             <span class="star-row" aria-label="5 stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></span>
             <blockquote>“My doctor was surprised. I just told him <span class="hl">I finally found something that works.</span>”</blockquote>
             <div class="attribution-row">
-              <div class="testi-avatar" aria-hidden="true"><img src="images/avatar-george.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+              <div class="testi-avatar" aria-hidden="true"><img src="https://datavinciteam.github.io/Lune-Lander/images/avatar-george.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
               <div class="attribution"> George M., 74 · North Carolina</div>
             </div>
           </div>
@@ -5593,7 +5610,7 @@
 
       <div class="ing-carousel" id="ing-carousel">
         <div class="ing-card">
-          <div class="ing-circle ing-circle-img"><img src="images/lune-hemp-oil-formula.png" alt="Hemp Oil 1,500 mg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;" /></div>
+          <div class="ing-circle ing-circle-img"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-hemp-oil-formula.png" alt="Hemp Oil 1,500 mg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;" /></div>
           <h3 class="ing-name">Hemp Oil 1,500 mg</h3>
           <p class="ing-mechanism">Deeply nourishes and calms hypersensitive nerves.</p>
           <div class="ing-pills">
@@ -5602,7 +5619,7 @@
           </div>
         </div>
         <div class="ing-card">
-          <div class="ing-circle"><img src="images/lune-magnesium-chloride.png" class="ing-circle-img" alt="Magnesium Chloride" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;" /></div>
+          <div class="ing-circle"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-magnesium-chloride.png" class="ing-circle-img" alt="Magnesium Chloride" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;" /></div>
           <h3 class="ing-name">Magnesium Chloride</h3>
           <p class="ing-mechanism">Feeds depleted nerve cells the minerals they crave  calmer brain-to-body communication.</p>
           <div class="ing-pills">
@@ -5611,7 +5628,7 @@
           </div>
         </div>
         <div class="ing-card">
-          <div class="ing-circle ing-circle-img-wrap"><img class="ing-circle-img" src="images/lune-dha-omega.png" alt="Omega-3 oil" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"></div>
+          <div class="ing-circle ing-circle-img-wrap"><img class="ing-circle-img" src="https://datavinciteam.github.io/Lune-Lander/images/lune-dha-omega.png" alt="Omega-3 oil" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"></div>
           <h3 class="ing-name">Omega-3</h3>
           <p class="ing-mechanism">Rebuilds nerve cell membranes like fresh insulation on frayed electrical cords.</p>
           <div class="ing-pills">
@@ -5620,7 +5637,7 @@
           </div>
         </div>
         <div class="ing-card">
-          <div class="ing-circle ing-circle-img"><img src="images/lune-capsicum.png" alt="Capsaicin" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;" /></div>
+          <div class="ing-circle ing-circle-img"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-capsicum.png" alt="Capsaicin" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;" /></div>
           <h3 class="ing-name">Capsaicin</h3>
           <p class="ing-mechanism">Works at the pain receptor level  turning down the volume on nerve overactivity.</p>
           <div class="ing-pills">
@@ -5629,7 +5646,7 @@
           </div>
         </div>
         <div class="ing-card">
-          <div class="ing-circle"><img class="ing-circle-img" src="images/lune-frankincense.png" alt="Frankincense" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"/></div>
+          <div class="ing-circle"><img class="ing-circle-img" src="https://datavinciteam.github.io/Lune-Lander/images/lune-frankincense.png" alt="Frankincense" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"/></div>
           <h3 class="ing-name">Frankincense</h3>
           <p class="ing-mechanism">A centuries-old anti-inflammatory that quiets swollen, irritated nerves.</p>
           <div class="ing-pills">
@@ -5638,7 +5655,7 @@
           </div>
         </div>
         <div class="ing-card">
-          <div class="ing-circle"><img class="ing-circle-img" src="images/lune-msm.png" alt="MSM" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"/></div>
+          <div class="ing-circle"><img class="ing-circle-img" src="https://datavinciteam.github.io/Lune-Lander/images/lune-msm.png" alt="MSM" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"/></div>
           <h3 class="ing-name">MSM</h3>
           <p class="ing-mechanism">Flushes out inflammation and supports connective tissue repair around nerves.</p>
           <div class="ing-pills">
@@ -5647,7 +5664,7 @@
           </div>
         </div>
         <div class="ing-card">
-          <div class="ing-circle"><img class="ing-circle-img" src="images/lune-vitamin-b.png" alt="Vitamin B" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"/></div>
+          <div class="ing-circle"><img class="ing-circle-img" src="https://datavinciteam.github.io/Lune-Lander/images/lune-vitamin-b.png" alt="Vitamin B" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"/></div>
           <h3 class="ing-name">Vitamin B3 + B5</h3>
           <p class="ing-mechanism">Boosts circulation and oxygen flow to feed damaged nerves.</p>
           <div class="ing-pills">
@@ -5656,7 +5673,7 @@
           </div>
         </div>
         <div class="ing-card">
-          <div class="ing-circle ing-circle-img"><img src="images/lune-willow-bark.png" alt="Willow Bark" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"></div>
+          <div class="ing-circle ing-circle-img"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-willow-bark.png" alt="Willow Bark" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"></div>
           <h3 class="ing-name">Willow Bark</h3>
           <p class="ing-mechanism">Nature's original aspirin  gently eases deep-set nerve pain.</p>
           <div class="ing-pills">
@@ -5665,7 +5682,7 @@
           </div>
         </div>
         <div class="ing-card">
-          <div class="ing-circle ing-circle-img"><img src="images/lune-menthol.png" alt="Menthol crystals" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;" /></div>
+          <div class="ing-circle ing-circle-img"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-menthol.png" alt="Menthol crystals" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;" /></div>
           <h3 class="ing-name">Menthol</h3>
           <p class="ing-mechanism">Delivers instant cooling relief while signaling nerves to relax.</p>
           <div class="ing-pills">
@@ -5674,7 +5691,7 @@
           </div>
         </div>
         <div class="ing-card">
-          <div class="ing-circle ing-circle-img"><img src="images/lune-arnica.png" alt="Arnica" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"></div>
+          <div class="ing-circle ing-circle-img"><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-arnica.png" alt="Arnica" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"></div>
           <h3 class="ing-name">Arnica</h3>
           <p class="ing-mechanism">Accelerates recovery from nerve stress and tension.</p>
           <div class="ing-pills">
@@ -5722,7 +5739,7 @@
 <!-- ============================================================
      ZONE 4  MECHANISM (split layout: scroll-colored bullets + image grid)
      ============================================================ -->
-<section id="zone-systems" class="reveal" style="background: linear-gradient(180deg, #ffffff 0%, rgba(250, 250, 250, 0.6) 6%, rgba(250, 250, 250, 0.95) 20%, #FAFAFA 38%, #FAFAFA 100%);">
+<section id="zone-systems" class="reveal" style="background: #ffffff;">
   <div class="container mech-grid">
 
     <!-- LEFT: heading + scroll-colored bullets -->
@@ -5759,11 +5776,11 @@
     <!-- RIGHT: image grid + floating overlay cards -->
     <div class="mech-right">
       <div class="mech-img-tall">
-        <img src="images/lune-nervbalm-hero-ai.png" alt="Nerve Balm jar" loading="lazy" />
+        <img src="https://datavinciteam.github.io/Lune-Lander/images/lune-nervbalm-hero-ai.png" alt="Nerve Balm jar" loading="lazy" />
       </div>
       <div class="mech-img-stack">
-        <div><img src="images/lune-before-purchase.png" alt="Applying Nerve Balm" loading="lazy" /></div>
-        <div><img src="images/lune-circulation-hands.png" alt="Restored circulation" loading="lazy" /></div>
+        <div><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-before-purchase.png" alt="Applying Nerve Balm" loading="lazy" /></div>
+        <div><img src="https://datavinciteam.github.io/Lune-Lander/images/lune-circulation-hands.png" alt="Restored circulation" loading="lazy" /></div>
       </div>
 
       <!-- Overlay benefit card 1 -->
@@ -5823,7 +5840,7 @@
       <!-- LEFT: Authority figure card -->
       <aside class="faq-authority">
         <div class="authority-image">
-          <img src="images/doctor-0.png" alt="Dr. Sarah Chen" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;">
+          <img src="https://datavinciteam.github.io/Lune-Lander/images/doctor-0.png" alt="Dr. Sarah Chen" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;">
           <span class="approved-badge">
             <svg class="icon"><use href="#i-shield"/></svg>
             Reviewed
@@ -5959,7 +5976,7 @@
       <!-- Review 1: Dorothy -->
       <article class="review-card">
         <div class="review-head">
-          <div class="review-avatar" aria-hidden="true"><img src="images/avatar-dorothy.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+          <div class="review-avatar" aria-hidden="true"><img src="https://datavinciteam.github.io/Lune-Lander/images/avatar-dorothy.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
           <div class="review-meta">
             <div class="reviewer-name">Dorothy M.</div>
             <span class="star-row review-stars" aria-label="5 stars">
@@ -5986,7 +6003,7 @@
       <!-- Review 2: Robert -->
       <article class="review-card">
         <div class="review-head">
-          <div class="review-avatar" aria-hidden="true"><img src="images/avatar-robert.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+          <div class="review-avatar" aria-hidden="true"><img src="https://datavinciteam.github.io/Lune-Lander/images/avatar-robert.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
           <div class="review-meta">
             <div class="reviewer-name">Robert T.</div>
             <span class="star-row review-stars" aria-label="5 stars">
@@ -6013,7 +6030,7 @@
       <!-- Review 3: Carol -->
       <article class="review-card">
         <div class="review-head">
-          <div class="review-avatar" aria-hidden="true"><img src="images/avatar-carol.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+          <div class="review-avatar" aria-hidden="true"><img src="https://datavinciteam.github.io/Lune-Lander/images/avatar-carol.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
           <div class="review-meta">
             <div class="reviewer-name">Carol H.</div>
             <span class="star-row review-stars" aria-label="5 stars">
@@ -6041,7 +6058,7 @@
       <!-- Review 4: George -->
       <article class="review-card">
         <div class="review-head">
-          <div class="review-avatar" aria-hidden="true"><img src="images/avatar-george.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+          <div class="review-avatar" aria-hidden="true"><img src="https://datavinciteam.github.io/Lune-Lander/images/avatar-george.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
           <div class="review-meta">
             <div class="reviewer-name">George M.</div>
             <span class="star-row review-stars" aria-label="5 stars">
@@ -6068,7 +6085,7 @@
       <!-- Review 5: Patricia -->
       <article class="review-card">
         <div class="review-head">
-          <div class="review-avatar" aria-hidden="true"><img src="images/avatar-patricia.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+          <div class="review-avatar" aria-hidden="true"><img src="https://datavinciteam.github.io/Lune-Lander/images/avatar-patricia.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
           <div class="review-meta">
             <div class="reviewer-name">Patricia L.</div>
             <span class="star-row review-stars" aria-label="5 stars">
@@ -6095,7 +6112,7 @@
       <!-- Review 6: Barbara -->
       <article class="review-card">
         <div class="review-head">
-          <div class="review-avatar" aria-hidden="true"><img src="images/avatar-barbara.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+          <div class="review-avatar" aria-hidden="true"><img src="https://datavinciteam.github.io/Lune-Lander/images/avatar-barbara.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
           <div class="review-meta">
             <div class="reviewer-name">Barbara T.</div>
             <span class="star-row review-stars" aria-label="5 stars">
@@ -6346,7 +6363,7 @@
      SUBSCRIBE / ONE-TIME TOGGLE + PACK SELECTOR
      ============================================================ */
   (function () {
-    const STAR_SVG = '<svg class="icon" style="width:10px;height:10px;color:#90A4AE;"><use href="#i-star"/></svg>';
+    const STAR_SVG = '<svg class="icon" style="width:10px;height:10px;color:#C49A2A;"><use href="#i-star"/></svg>';
     const POPULAR_TAG = `<span style="display:inline-flex;align-items:center;gap:6px;">${STAR_SVG} Most Popular</span>`;
 
     const IMG_1 = 'https://cdn.shopify.com/s/files/1/0257/2481/3363/files/nerve-balm-single-jar_41cf6c05-7165-4d90-b52c-b40b54ce65cb.jpg?v=1745928811';
